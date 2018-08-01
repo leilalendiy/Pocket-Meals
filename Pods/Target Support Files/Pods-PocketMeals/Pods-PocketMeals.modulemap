@@ -1,0 +1,6 @@
+framework module Pods_PocketMeals {
+  umbrella header "Pods-PocketMeals-umbrella.h"
+
+  export *
+  module * { export * }
+}
