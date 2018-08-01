@@ -20,25 +20,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var favoriteRecipes = [Recipe]()
     
     @IBAction func favoriteButton(_ sender: UIButton) {
-        /*if sender.currentImage == UIImage(named:"Empty Star") {
-            sender.setImage(UIImage(named:"Filled Star.png"), for: .selected)
-            didLikeFood = true
-        } else {
-            sender.setImage(UIImage(named:"Empty Star.png"), for: .normal)
-            didLikeFood = false
-        }*/
-        
-        /*let liked = UIImage(named: "Filled Star.png") as UIImage?
-        sender.setImage(liked, for: .selected)
-        
-        let image = UIImage(named: "Empty Star.png") as UIImage?
-        sender.setImage(image, for: .normal)*/
-        
         if !didLikeFood {
             let liked = UIImage(named: "Filled Star.png") as UIImage?
+            print("\(favoriteRecipes)!!!!!!!")
             sender.setImage(liked, for: .normal)
+            sender.isEnabled = false
             didLikeFood = true
             favoriteRecipes.append(recipes[sender.tag])
+            print("\(favoriteRecipes)!!!!!!!")
         } else {
             let image = UIImage(named: "Empty Star.png") as UIImage?
             sender.setImage(image, for: .normal)
@@ -71,6 +60,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.recipesTableView.delegate = self
         self.recipesTableView.dataSource = self
         
+        self.favoriteRecipes = []
         //Dismiss Keyboard
         //self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
@@ -137,42 +127,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //        let backItem = UIBarButtonItem()
-        //        backItem.title = "Tasks"
-        //        navigationItem.backBarButtonItem = backItem
-        
+
         guard let identifier = segue.identifier else { return }
         
         switch identifier {
             
         case "showRecipe":
-            
-//            guard let recipe = sender as? Recipe else { return }
-//
-//
-//            let dvc = segue.destination as! RecipeViewController
-//            dvc.recipe = recipe
-//            dvc.getRecipeInfo(info: recipe.id)
-            
+
             guard let indexPath = recipesTableView.indexPathForSelectedRow else { return }
-            
-            // 2
             let recipe = recipes[indexPath.row]
-            // 3
             let destination = segue.destination as! RecipeViewController
-            // 4
             destination.recipe = recipe
             destination.getRecipeInfo(info: recipe.id)
             
         case "showFavorites":
-            
-            /*if let fave = segue.destination as? FavoritesViewController {
-                fave.recipes = favoriteRecipes
-            }*/
+            print("\(favoriteRecipes)!!!!!!!")
             
             if segue.destination is FavoritesViewController {
                 let vc =  segue.destination as! FavoritesViewController
                 vc.recipes = favoriteRecipes
+                print("\(favoriteRecipes)~~~~~~~~~~~~")
             }
             
         default:

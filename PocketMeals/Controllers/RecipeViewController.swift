@@ -20,8 +20,6 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var detailsSegmentedControl: UISegmentedControl!
     
-    var instructionViewModel: InstructionModel!
-    
     var favorite = false
     var ingredients: [Ingredient] = [] {
         didSet {

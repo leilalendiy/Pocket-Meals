@@ -19,10 +19,12 @@ class FavoritesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let seedRecipe = Recipe.loadDefaultRecipe() {
-            recipes += seedRecipe
-            //recipes = recipes.sorted(by: { $0.title < $1.title })
-        }
+        print("\(recipes)!!!!!!!!")
+        
+//        if let seedRecipe = Recipe.loadDefaultRecipe() {
+//            recipes += seedRecipe
+//            //recipes = recipes.sorted(by: { $0.title < $1.title })
+//        }
         
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
