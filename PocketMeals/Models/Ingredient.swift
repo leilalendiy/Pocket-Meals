@@ -9,6 +9,16 @@
 import Foundation
 import SwiftyJSON
 
+struct Information {
+    let readyInMinutes: Int
+    let servings: Int
+    
+    init(json:JSON) {
+        self.readyInMinutes = json["readyInMinutes"].intValue
+        self.servings = json["servings"].intValue
+    }
+}
+
 struct Ingredient {
     let id: Int
     let original: String

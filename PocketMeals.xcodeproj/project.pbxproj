@@ -13,6 +13,7 @@
 		2E1C5B1C210FD6F1006876FC /* FoodServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C5B1B210FD6F1006876FC /* FoodServices.swift */; };
 		2E1C5B20210FECD8006876FC /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C5B1F210FECD8006876FC /* InfoTableViewCell.swift */; };
 		2E1C5B25211218FC006876FC /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C5B24211218FC006876FC /* CoreDataHelper.swift */; };
+		2E245C3B2113AF090025707C /* DailyMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E245C3A2113AF090025707C /* DailyMealsViewController.swift */; };
 		2E318BC72107F96700C931CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E318BC62107F96700C931CB /* AppDelegate.swift */; };
 		2E318BC92107F96700C931CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E318BC82107F96700C931CB /* ViewController.swift */; };
 		2E318BCC2107F96700C931CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E318BCA2107F96700C931CB /* Main.storyboard */; };
@@ -20,9 +21,12 @@
 		2E318BD12107F96900C931CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E318BD02107F96900C931CB /* Assets.xcassets */; };
 		2E318BD42107F96900C931CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E318BD22107F96900C931CB /* LaunchScreen.storyboard */; };
 		2E318BE12109657100C931CB /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E318BE02109657100C931CB /* FavoritesViewController.swift */; };
-		2E318BE32109657E00C931CB /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E318BE22109657E00C931CB /* CalendarViewController.swift */; };
 		2E318BE52109658700C931CB /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E318BE42109658700C931CB /* Recipe.swift */; };
 		2E318BE82109661B00C931CB /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E318BE72109661B00C931CB /* RecipeTableViewCell.swift */; };
+		2E54137921123C6D00F0535E /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E54137821123C6D00F0535E /* FavoriteTableViewCell.swift */; };
+		2E969F1A21126EA500F0FC56 /* FavoriteRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E969F1921126EA500F0FC56 /* FavoriteRecipeViewController.swift */; };
+		2E969F1C21127E3200F0FC56 /* FaveInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E969F1B21127E3200F0FC56 /* FaveInfoTableViewCell.swift */; };
+		2EB6901B211387ED0082A032 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6901A211387ED0082A032 /* CalendarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,7 @@
 		2E1C5B1B210FD6F1006876FC /* FoodServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodServices.swift; sourceTree = "<group>"; };
 		2E1C5B1F210FECD8006876FC /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		2E1C5B24211218FC006876FC /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		2E245C3A2113AF090025707C /* DailyMealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMealsViewController.swift; sourceTree = "<group>"; };
 		2E318BC32107F96700C931CB /* PocketMeals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketMeals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E318BC62107F96700C931CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E318BC82107F96700C931CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,9 +46,12 @@
 		2E318BD32107F96900C931CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E318BD52107F96900C931CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E318BE02109657100C931CB /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		2E318BE22109657E00C931CB /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		2E318BE42109658700C931CB /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		2E318BE72109661B00C931CB /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		2E54137821123C6D00F0535E /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		2E969F1921126EA500F0FC56 /* FavoriteRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeViewController.swift; sourceTree = "<group>"; };
+		2E969F1B21127E3200F0FC56 /* FaveInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaveInfoTableViewCell.swift; sourceTree = "<group>"; };
+		2EB6901A211387ED0082A032 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		497C6655BC319043573513E1 /* Pods-PocketMeals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketMeals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketMeals/Pods-PocketMeals.debug.xcconfig"; sourceTree = "<group>"; };
 		D21F26077C9DE7FD4147B845 /* Pods-PocketMeals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketMeals.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketMeals/Pods-PocketMeals.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,8 +133,10 @@
 			children = (
 				2E318BC82107F96700C931CB /* ViewController.swift */,
 				2E318BE02109657100C931CB /* FavoritesViewController.swift */,
-				2E318BE22109657E00C931CB /* CalendarViewController.swift */,
 				2E1C5B16210A773E006876FC /* RecipeViewController.swift */,
+				2E969F1921126EA500F0FC56 /* FavoriteRecipeViewController.swift */,
+				2EB6901A211387ED0082A032 /* CalendarViewController.swift */,
+				2E245C3A2113AF090025707C /* DailyMealsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -145,6 +155,8 @@
 			children = (
 				2E318BE72109661B00C931CB /* RecipeTableViewCell.swift */,
 				2E1C5B1F210FECD8006876FC /* InfoTableViewCell.swift */,
+				2E54137821123C6D00F0535E /* FavoriteTableViewCell.swift */,
+				2E969F1B21127E3200F0FC56 /* FaveInfoTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,16 +273,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PocketMeals/Pods-PocketMeals-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/EXTView/EXTView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
+				"${BUILT_PRODUCTS_DIR}/KDCalendar/KDCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/hkMotus/hkMotus.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EXTView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KDCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hkMotus.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -284,17 +296,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E318BE32109657E00C931CB /* CalendarViewController.swift in Sources */,
+				2EB6901B211387ED0082A032 /* CalendarViewController.swift in Sources */,
 				2E318BC92107F96700C931CB /* ViewController.swift in Sources */,
 				2E1C5B19210FCAD0006876FC /* Ingredient.swift in Sources */,
 				2E318BE52109658700C931CB /* Recipe.swift in Sources */,
 				2E318BC72107F96700C931CB /* AppDelegate.swift in Sources */,
 				2E1C5B1C210FD6F1006876FC /* FoodServices.swift in Sources */,
 				2E1C5B17210A773E006876FC /* RecipeViewController.swift in Sources */,
+				2E54137921123C6D00F0535E /* FavoriteTableViewCell.swift in Sources */,
 				2E1C5B25211218FC006876FC /* CoreDataHelper.swift in Sources */,
 				2E318BE12109657100C931CB /* FavoritesViewController.swift in Sources */,
 				2E1C5B20210FECD8006876FC /* InfoTableViewCell.swift in Sources */,
+				2E969F1C21127E3200F0FC56 /* FaveInfoTableViewCell.swift in Sources */,
 				2E318BCF2107F96700C931CB /* PocketMeals.xcdatamodeld in Sources */,
+				2E245C3B2113AF090025707C /* DailyMealsViewController.swift in Sources */,
+				2E969F1A21126EA500F0FC56 /* FavoriteRecipeViewController.swift in Sources */,
 				2E318BE82109661B00C931CB /* RecipeTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,10 +463,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.PocketMeals;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leilaadaza.PocketMeals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -466,10 +482,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.PocketMeals;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leilaadaza.PocketMeals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -10,11 +10,11 @@ import Foundation
 import SwiftyJSON
 
 struct Recipe {
-    let id: Int
-    let title: String
-    let image: String
-    let usedIngredientCount: Int
-    let missedIngredientCount: Int
+    var id: Int
+    var title: String
+    var image: String
+    var usedIngredientCount: Int
+    var missedIngredientCount: Int
     var ingredients: [Ingredient]?
     var instructions: [Instruction]?
     var nutrition: [Nutrition]?

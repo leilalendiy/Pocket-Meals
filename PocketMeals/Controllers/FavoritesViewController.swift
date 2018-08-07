@@ -8,10 +8,15 @@
 
 import Foundation
 import UIKit
+import hkMotus
 
 class FavoritesViewController: UITableViewController {
     
-    var recipes = [Recipe]()
+    var recipes = [CoreDataRecipe]() {
+        didSet {
+            favoritesTableView.reloadData(effect: .LeftAndRight)
+        }
+    }
     var faveRecipe: Recipe?
     
     @IBOutlet var favoritesTableView: UITableView!
@@ -19,31 +24,57 @@ class FavoritesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("\(recipes)!!!!!!!!")
+        self.navigationController?.isNavigationBarHidden = true
         
-//        if let seedRecipe = Recipe.loadDefaultRecipe() {
-//            recipes += seedRecipe
-//            //recipes = recipes.sorted(by: { $0.title < $1.title })
-//        }
+        // remove separators for empty cells
+        favoritesTableView.tableFooterView = UIView()
+        // remove separators from cells
+        favoritesTableView.separatorStyle = .none
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        var numOfSections: Int = 1
+        if recipes.count > 0 {
+            favoritesTableView.backgroundView = nil
+        } else {
+            numOfSections = 0
+            let noDataLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: favoritesTableView.bounds.size.width * 0.10, height: favoritesTableView.bounds.size.height))
+            noDataLabel.text = "Your favorites list is empty. Please favorite some recipes so you can view them here."
+            noDataLabel.font = UIFont(name: "Georgia", size: 17)
+            noDataLabel.textColor = UIColor.darkGray
+            noDataLabel.textAlignment = .center
+            noDataLabel.numberOfLines = 0
+            favoritesTableView.backgroundView  = noDataLabel
+        }
         
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableViewAutomaticDimension
+        return numOfSections
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recipes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "listFavoriteTableViewCell") as! RecipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableViewCell") as! FavoriteTableViewCell
         let recipe = recipes[indexPath.row]
-        cell.recipeTitleLabel.text = recipe.title
+        faveRecipe?.id = Int(recipe.id)
+        cell.recipeLabel.text = recipe.title
         
         DispatchQueue.global().async {
-            let url = URL(string: recipe.image)
-            let data = try! Data(contentsOf: url!)
-            let image = UIImage(data: data )!
-            
-            DispatchQueue.main.async {
-                cell.recipeImageView.image = image
-            }
+            if let url = URL(string: recipe.imageURL ?? "No image found") {
+                let data = try! Data(contentsOf: url)
+                let image = UIImage(data: data)!
+                
+                DispatchQueue.main.async {
+                    cell.recipeImage.image = image
+                    cell.recipeImage.layer.borderWidth = 0.25
+                    cell.recipeImage.layer.borderColor = UIColor.darkGray.cgColor
+                    cell.recipeImage.layer.masksToBounds = false
+                    cell.recipeImage.layer.cornerRadius = cell.recipeImage.frame.height/2
+                    cell.recipeImage.clipsToBounds = true
+                }
+            } else { return }
         }
         
         return cell
@@ -56,7 +87,12 @@ class FavoritesViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        recipes = CoreDataHelper.retrieveRecipes()
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showRecipe", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -65,9 +101,11 @@ class FavoritesViewController: UITableViewController {
         switch identifier {
             
         case "showRecipe":
-            if let vc = segue.destination as? RecipeViewController {
-                vc.recipe = faveRecipe
-            }
+            guard let indexPath = favoritesTableView.indexPathForSelectedRow else { return }
+            let recipe = recipes[indexPath.row]
+            let destination = segue.destination as! FavoriteRecipeViewController
+            destination.recipe = recipe
+            destination.getRecipeInfo(info: Int(recipe.id))
             
         default:
             print("unexpected segue identifier")
@@ -80,10 +118,14 @@ class FavoritesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            // delete item at indexPath
+            let recipe = self.recipes[indexPath.row]
+            CoreDataHelper.delete(Recipe: recipe)
             self.recipes.remove(at: indexPath.row)
+            self.favoritesTableView.reloadData()
         }
         
         return [delete]
     }
+    
+    
 }

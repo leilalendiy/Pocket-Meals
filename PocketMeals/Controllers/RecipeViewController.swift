@@ -16,9 +16,10 @@ class RecipeViewController: UIViewController {
     var recipe: Recipe?
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var detailsTableView: UITableView!
-    @IBOutlet weak var recipeTitleLabel: UITextField!
-    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var recipeTitleLabel: UILabel!
     @IBOutlet weak var detailsSegmentedControl: UISegmentedControl!
+    
+    @IBOutlet weak var backButton: UIButton!
     
     var favorite = false
     var ingredients: [Ingredient] = [] {
@@ -49,18 +50,6 @@ class RecipeViewController: UIViewController {
         detailsTableView.reloadData()
     }
     
-    @IBAction func favoriteTapped(_ sender: UIButton) {
-        if !favorite {
-            let liked = UIImage(named: "Filled Star.png") as UIImage?
-            sender.setImage(liked, for: .normal)
-            favorite = true
-        } else {
-            let image = UIImage(named: "Empty Star.png") as UIImage?
-            sender.setImage(image, for: .normal)
-            favorite = false
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.detailsTableView.delegate = self
@@ -72,8 +61,25 @@ class RecipeViewController: UIViewController {
             self.nutritionFacts = nut
         }
         
+        self.recipeTitleLabel.layer.cornerRadius = 5
+        self.recipeTitleLabel.layer.borderWidth = 1
+        self.recipeTitleLabel.layer.borderColor = UIColor.clear.cgColor
+        
+//        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+//        rightSwipe.direction = .right
+        
         detailsSegmentedControl.selectedSegmentIndex = 0
     }
+    
+//    @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
+//        if sender.state == .ended {
+//            if sender.direction == .right {
+//                performSegue(withIdentifier: "unwindToFirst", sender: self)
+//            } else {
+//                return
+//            }
+//        }
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -132,7 +138,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         case 2 :
             return nutritionFacts.count
         default:
-            return 0
+            return 1
         }
     }
     
@@ -141,16 +147,24 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch detailsSegmentedControl.selectedSegmentIndex {
         case 0 :
-            cell.configure(ingredients[indexPath.row].original)
+            if ingredients.isEmpty {
+                cell.configure("Sorry, there are no ingredients listed for this recipe as of now.")
+            } else {
+                cell.configure(ingredients[indexPath.row].original)
+            }
             
         case 1 :
-            cell.configure("\(indexPath.row + 1). \(instructions[indexPath.row].step)")
+            if instructions.isEmpty {
+                cell.configure("Sorry, there are no instructions listed for this recipe as of now.")
+            } else {
+                cell.configure("\(indexPath.row + 1). \(instructions[indexPath.row].step)")
+            }
             
         case 2 :
-            cell.configure("\(nutritionFacts[indexPath.row].title) : \(nutritionFacts[indexPath.row].amount) \(nutritionFacts[indexPath.row].unit)")
+            cell.configure("\(nutritionFacts[indexPath.row].title): \(nutritionFacts[indexPath.row].amount) \(nutritionFacts[indexPath.row].unit) \nDaily Percentage: \(nutritionFacts[indexPath.row].percentOfDailyNeeds)%")
             
         default:
-            cell.descriptionLabel.text = ""
+            cell.descriptionLabel.text = "No results found."
         }
         
         return cell

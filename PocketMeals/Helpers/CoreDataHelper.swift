@@ -22,13 +22,31 @@ struct CoreDataHelper {
         return context
     }()
     
-//    static func newNote() -> Note {
-//        let note = NSEntityDescription.insertNewObject(forEntityName: "Note", into: context) as! Note
-//
-//        return note
-//    }
+    static func newRecipe() -> CoreDataRecipe {
+        let recipe = NSEntityDescription.insertNewObject(forEntityName: "CoreDataRecipe", into: context) as! CoreDataRecipe
+
+        return recipe
+    }
     
-    static func saveRecipe() {
+    static func newIngredient() -> CoreDataIngredient {
+        let ingredient = NSEntityDescription.insertNewObject(forEntityName: "CoreDataIngredient", into: context) as! CoreDataIngredient
+        
+        return ingredient
+    }
+    
+    static func newNutrition() -> CoreDataNutrition {
+        let nutrition = NSEntityDescription.insertNewObject(forEntityName: "CoreDataNutrition", into: context) as! CoreDataNutrition
+        
+        return nutrition
+    }
+    
+    static func newInstruction() -> CoreDataInstruction {
+        let instruction = NSEntityDescription.insertNewObject(forEntityName: "CoreDataInstruction", into: context) as! CoreDataInstruction
+        
+        return instruction
+    }
+    
+    static func save() {
         do {
             try context.save()
         } catch let error {
@@ -36,22 +54,37 @@ struct CoreDataHelper {
         }
     }
     
-//    static func deleteNote(note: Note) {
-//        context.delete(note)
-//
-//        saveNote()
-//    }
+    static func delete(Recipe: CoreDataRecipe) {
+        context.delete(Recipe)
+
+        save()
+    }
     
-//    static func retrieveRecipes() -> [Recipe] {
-//        do {
-//            let fetchRequest = NSFetchRequest<Recipe>(entityName: "Recipe")
-//            let results = try context.fetch(fetchRequest)
-//
-//            return results.sorted(by: {$0.modificationTime! > $01.modificationTime!})
-//        } catch let error {
-//            print("Could not fetch \(error.localizedDescription)")
-//
-//            return []
-//        }
-//    }
+    static func retrieveRecipes() -> [CoreDataRecipe] {
+        do {
+            let fetchRequest = NSFetchRequest<CoreDataRecipe>(entityName: "CoreDataRecipe")
+            let results = try context.fetch(fetchRequest)
+            
+            return results
+        } catch let error {
+            print("Could not fetch \(error.localizedDescription)")
+
+            return []
+        }
+    }
+    
+    static func retrieveByDate(date: String) -> [CoreDataRecipe] {
+        do {
+            let fetchRequest = NSFetchRequest<CoreDataRecipe>(entityName: "CoreDataRecipe")
+            fetchRequest.predicate = NSPredicate(format: "date = %@", date)
+            
+            let results = try context.fetch(fetchRequest)
+            
+            return results
+        } catch let error {
+            print("Could not fetch \(error.localizedDescription)")
+            
+            return []
+        }
+    }
 }

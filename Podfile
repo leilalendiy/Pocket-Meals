@@ -8,7 +8,7 @@ target 'PocketMeals' do
   # Pods for PocketMeals
   pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'SwiftyGif'
-  pod 'EXTView'
+  pod 'KDCalendar'
+  pod 'hkMotus'
 
 end

@@ -1,4 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CoreDataIngredient" representedClassName="CoreDataIngredient" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="original" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRecipe" inverseName="ingredients" inverseEntity="CoreDataRecipe" syncable="YES"/>
+    </entity>
+    <entity name="CoreDataInstruction" representedClassName="CoreDataInstruction" syncable="YES" codeGenerationType="class">
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="step" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRecipe" inverseName="instructions" inverseEntity="CoreDataRecipe" syncable="YES"/>
+    </entity>
+    <entity name="CoreDataNutrition" representedClassName="CoreDataNutrition" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="percentOfDailyNeeds" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRecipe" inverseName="nutritions" inverseEntity="CoreDataRecipe" syncable="YES"/>
+    </entity>
+    <entity name="CoreDataRecipe" representedClassName=".CoreDataRecipe" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="missedIngredientCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usedIngredientCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="ingredients" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataIngredient" inverseName="recipe" inverseEntity="CoreDataIngredient" syncable="YES"/>
+        <relationship name="instructions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataInstruction" inverseName="recipe" inverseEntity="CoreDataInstruction" syncable="YES"/>
+        <relationship name="nutritions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataNutrition" inverseName="recipe" inverseEntity="CoreDataNutrition" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CoreDataIngredient" positionX="-36" positionY="45" width="128" height="90"/>
+        <element name="CoreDataInstruction" positionX="0" positionY="90" width="128" height="90"/>
+        <element name="CoreDataNutrition" positionX="-18" positionY="63" width="128" height="120"/>
+        <element name="CoreDataRecipe" positionX="-54" positionY="-9" width="128" height="180"/>
+    </elements>
 </model>
