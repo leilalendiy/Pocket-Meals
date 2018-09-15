@@ -25,7 +25,6 @@ struct Recipe {
         self.image = json["image"].stringValue
         self.usedIngredientCount = json["usedIngredientCount"].intValue
         self.missedIngredientCount = json["missedIngredientCount"].intValue
-       
     }
 }
 

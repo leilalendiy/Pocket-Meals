@@ -21,7 +21,9 @@
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="minutes" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="missedIngredientCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="servings" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="usedIngredientCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="ingredients" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataIngredient" inverseName="recipe" inverseEntity="CoreDataIngredient" syncable="YES"/>
@@ -32,6 +34,6 @@
         <element name="CoreDataIngredient" positionX="-36" positionY="45" width="128" height="90"/>
         <element name="CoreDataInstruction" positionX="0" positionY="90" width="128" height="90"/>
         <element name="CoreDataNutrition" positionX="-18" positionY="63" width="128" height="120"/>
-        <element name="CoreDataRecipe" positionX="-54" positionY="-9" width="128" height="180"/>
+        <element name="CoreDataRecipe" positionX="-54" positionY="-9" width="128" height="210"/>
     </elements>
 </model>

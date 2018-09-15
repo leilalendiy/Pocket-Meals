@@ -11,7 +11,6 @@ import Alamofire
 import SwiftyJSON
 
 struct FoodServices {
-    
     static func getIngredient(id: Int, completion: @escaping ([Ingredient], [Nutrition], [Instruction]) -> Void){
         
         let link = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/\(id)/information"
@@ -49,7 +48,13 @@ struct FoodServices {
                 instructions.append(ins)
             }
             
+//            let jsonDict = JSON(value).dictionaryValue
+//            let minutes = Minutes.init(dict: jsonDict as [String : AnyObject])
+//            let servings = Servings.init(dict: jsonDict as [String : AnyObject])
+            
             completion(ingredients, nutrients, instructions)
         }
     }
+    
+    
 }

@@ -27,6 +27,7 @@
 		2E969F1A21126EA500F0FC56 /* FavoriteRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E969F1921126EA500F0FC56 /* FavoriteRecipeViewController.swift */; };
 		2E969F1C21127E3200F0FC56 /* FaveInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E969F1B21127E3200F0FC56 /* FaveInfoTableViewCell.swift */; };
 		2EB6901B211387ED0082A032 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6901A211387ED0082A032 /* CalendarViewController.swift */; };
+		2EC137572149C35100923CD5 /* Minutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC137562149C35100923CD5 /* Minutes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		2E969F1921126EA500F0FC56 /* FavoriteRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeViewController.swift; sourceTree = "<group>"; };
 		2E969F1B21127E3200F0FC56 /* FaveInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaveInfoTableViewCell.swift; sourceTree = "<group>"; };
 		2EB6901A211387ED0082A032 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		2EC137562149C35100923CD5 /* Minutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minutes.swift; sourceTree = "<group>"; };
 		497C6655BC319043573513E1 /* Pods-PocketMeals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketMeals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketMeals/Pods-PocketMeals.debug.xcconfig"; sourceTree = "<group>"; };
 		D21F26077C9DE7FD4147B845 /* Pods-PocketMeals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketMeals.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketMeals/Pods-PocketMeals.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +148,7 @@
 			children = (
 				2E318BE42109658700C931CB /* Recipe.swift */,
 				2E1C5B18210FCAD0006876FC /* Ingredient.swift */,
+				2EC137562149C35100923CD5 /* Minutes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KDCalendar/KDCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TableFlip/TableFlip.framework",
 				"${BUILT_PRODUCTS_DIR}/hkMotus/hkMotus.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -282,6 +286,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KDCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableFlip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hkMotus.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +312,7 @@
 				2E1C5B25211218FC006876FC /* CoreDataHelper.swift in Sources */,
 				2E318BE12109657100C931CB /* FavoritesViewController.swift in Sources */,
 				2E1C5B20210FECD8006876FC /* InfoTableViewCell.swift in Sources */,
+				2EC137572149C35100923CD5 /* Minutes.swift in Sources */,
 				2E969F1C21127E3200F0FC56 /* FaveInfoTableViewCell.swift in Sources */,
 				2E318BCF2107F96700C931CB /* PocketMeals.xcdatamodeld in Sources */,
 				2E245C3B2113AF090025707C /* DailyMealsViewController.swift in Sources */,
@@ -456,15 +462,19 @@
 			baseConfigurationReference = 497C6655BC319043573513E1 /* Pods-PocketMeals.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Leila Adaza (U6ZZP2748J)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8UR4VB5B89;
 				INFOPLIST_FILE = PocketMeals/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.leilaadaza.PocketMeals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c2034594-2f5c-4d2b-99bd-a41be9a01fd8";
+				PROVISIONING_PROFILE_SPECIFIER = PocketMealsDevelopmentProfile;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -475,15 +485,19 @@
 			baseConfigurationReference = D21F26077C9DE7FD4147B845 /* Pods-PocketMeals.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Leila Adaza (8UR4VB5B89)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8UR4VB5B89;
 				INFOPLIST_FILE = PocketMeals/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.leilaadaza.PocketMeals;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c2034594-2f5c-4d2b-99bd-a41be9a01fd8";
+				PROVISIONING_PROFILE_SPECIFIER = PocketMealsDistributionProfile;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

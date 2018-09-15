@@ -23,9 +23,14 @@ class DailyMealsViewController: UIViewController {
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         let stringDate = date.toString(dateFormat: "LLLL dd, yyyy")
         
-        for meal in meals {
-            meal.date = stringDate
+        if meals.isEmpty {
+            CoreDataHelper.save()
+        } else {
+            for meal in meals {
+                meal.date = stringDate
+            }
         }
+        
         CoreDataHelper.save()
         performSegue(withIdentifier: "saveIntoDate", sender: sender)
     }
@@ -58,6 +63,19 @@ class DailyMealsViewController: UIViewController {
         
         favoritesTableView.reloadData()
         mealsTableView.reloadData()
+        self.navigationController?.isNavigationBarHidden = true
+        
+        self.favoritesTableView.layer.cornerRadius = 3
+        self.favoritesTableView.layer.borderWidth = 1
+        self.favoritesTableView.layer.borderColor = UIColor.clear.cgColor
+        
+        self.mealsTableView.layer.cornerRadius = 3
+        self.mealsTableView.layer.borderWidth = 1
+        self.mealsTableView.layer.borderColor = UIColor.clear.cgColor
+        
+        self.backButton.layer.cornerRadius = 5
+        self.backButton.layer.borderWidth = 1
+        self.backButton.layer.borderColor = UIColor.clear.cgColor
         
         self.saveButton.layer.cornerRadius = 5
         self.saveButton.layer.borderWidth = 1
@@ -126,8 +144,8 @@ extension DailyMealsViewController: UITableViewDelegate, UITableViewDataSource {
             meals.append(thisRecipe)
             temporary.remove(at: indexPath.row)
             recipes = temporary
-            mealsTableView.reloadData()
             favoritesTableView.reloadData()
+            mealsTableView.reloadData()
         } else {
             temporary = meals
             let thisRecipe = temporary[indexPath.row]

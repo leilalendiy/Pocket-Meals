@@ -62,6 +62,10 @@ class FavoriteRecipeViewController: UIViewController {
             self.detailsTableView.reloadData()
         }
         
+        self.backButton.layer.cornerRadius = 5
+        self.backButton.layer.borderWidth = 1
+        self.backButton.layer.borderColor = UIColor.clear.cgColor
+        
         self.recipeTitleLabel.layer.cornerRadius = 5
         self.recipeTitleLabel.layer.borderWidth = 1
         self.recipeTitleLabel.layer.borderColor = UIColor.clear.cgColor
@@ -125,18 +129,10 @@ extension FavoriteRecipeViewController: UITableViewDelegate, UITableViewDataSour
         
         switch detailsSegmentedControl.selectedSegmentIndex {
         case 0 :
-            if ingredients.count == 0 {
-                cell.configure("Sorry, there are no ingredients listed for this recipe as of now.")
-            } else {
-                cell.configure(ingredients[indexPath.row].original)
-            }
+            cell.configure(ingredients[indexPath.row].original)
             
         case 1 :
-            if instructions.count == 0 {
-                cell.configure("Sorry, there are no instructions listed for this recipe as of now.")
-            } else {
-                cell.configure("\(indexPath.row + 1). \(instructions[indexPath.row].step)")
-            }
+            cell.configure("\(indexPath.row + 1). \(instructions[indexPath.row].step)")
             
         case 2 :
             cell.configure("\(nutritionFacts[indexPath.row].title): \(nutritionFacts[indexPath.row].amount) \(nutritionFacts[indexPath.row].unit) \nDaily Percentage: \(nutritionFacts[indexPath.row].percentOfDailyNeeds)%")

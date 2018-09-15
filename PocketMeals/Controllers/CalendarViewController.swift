@@ -14,6 +14,7 @@ class CalendarViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var calendar: CalendarView!
+    
     let formatter = DateFormatter()
     var date = Date()
 
@@ -21,6 +22,12 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         calendar.delegate = self
         calendar.dataSource = self
+        
+        self.calendar.layer.cornerRadius = 3
+        self.calendar.layer.borderWidth = 1
+        self.calendar.layer.borderColor = UIColor.clear.cgColor
+        
+        self.navigationController?.isNavigationBarHidden = true
         
         self.titleLabel.layer.cornerRadius = 5
         self.titleLabel.layer.borderWidth = 1
@@ -50,6 +57,7 @@ class CalendarViewController: UIViewController {
         
         let today = Date()
         self.calendar.setDisplayDate(today, animated: false)
+        // self.datePicker.setDate(today, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,7 +91,7 @@ extension CalendarViewController: CalendarViewDelegate, CalendarViewDataSource {
     }
 
     func calendar(_ calendar: CalendarView, didScrollToMonth date: Date) {
-        //self.datePicker.setDate(date, animated: true)
+        // self.datePicker.setDate(date, animated: true)
     }
 
     func calendar(_ calendar: CalendarView, didSelectDate date: Date, withEvents events: [CalendarEvent]) {
@@ -104,18 +112,22 @@ extension CalendarViewController: CalendarViewDelegate, CalendarViewDataSource {
     }
 
     func startDate() -> Date {
-//        var dateComponents = DateComponents()
-//        dateComponents.month = -3
-//        let today = Date()
-//        if let threeMonthsAgo = self.calendar.calendar.date(byAdding: dateComponents, to: today) {
-//            return threeMonthsAgo
-//        }
-
-        return Date()
+        var dateComponents = DateComponents()
+        dateComponents.month = -1
+        let today = Date()
+        let oneMonthAgo = self.calendar.calendar.date(byAdding: dateComponents, to: today)
+        return oneMonthAgo!
     }
 
     func endDate() -> Date {
-        return Date()
+        var dateComponents = DateComponents()
+        dateComponents.year = 1
+        
+        let today = Date()
+        
+        let oneYearFromNow = self.calendar.calendar.date(byAdding: dateComponents, to: today)!
+        
+        return oneYearFromNow
     }
     
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {
@@ -125,6 +137,18 @@ extension CalendarViewController: CalendarViewDelegate, CalendarViewDataSource {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    @IBAction func goToPreviousMonth(_ sender: UIButton) {
+        self.calendar.goToPreviousMonth()
+    }
+    
+    @IBAction func goToNextMonth(_ sender: UIButton) {
+        self.calendar.goToNextMonth()
     }
 }
 

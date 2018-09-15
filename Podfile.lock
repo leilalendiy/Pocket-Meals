@@ -3,12 +3,14 @@ PODS:
   - hkMotus (1.0.1)
   - KDCalendar (1.6.0)
   - SwiftyJSON (4.1.0)
+  - TableFlip (1.2)
 
 DEPENDENCIES:
   - Alamofire
   - hkMotus
   - KDCalendar
   - SwiftyJSON
+  - TableFlip
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -16,13 +18,15 @@ SPEC REPOS:
     - hkMotus
     - KDCalendar
     - SwiftyJSON
+    - TableFlip
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   hkMotus: 5102fdf8af962ff5d0a752f99d1a3a15dbe89d02
   KDCalendar: a9dd0f2aa898230a7030677c629ae8d7dda91f4e
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  TableFlip: 2ae22773412b295a7cbc54d95b44085bb28092f6
 
-PODFILE CHECKSUM: 31fa5790913d98f477cb329866015ddf484830c7
+PODFILE CHECKSUM: 2e43d3dcb6fb9c143d9ebe7a3f659b76b8e7b2e8
 
 COCOAPODS: 1.5.3

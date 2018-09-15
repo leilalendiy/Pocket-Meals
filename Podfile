@@ -10,5 +10,6 @@ target 'PocketMeals' do
   pod 'SwiftyJSON'
   pod 'KDCalendar'
   pod 'hkMotus'
+  pod 'TableFlip'
 
 end
