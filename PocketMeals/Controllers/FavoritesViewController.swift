@@ -8,13 +8,14 @@
 
 import Foundation
 import UIKit
-import hkMotus
+import TableFlip
 
 class FavoritesViewController: UITableViewController {
     
     var recipes = [CoreDataRecipe]() {
         didSet {
-            favoritesTableView.reloadData(effect: .LeftAndRight)
+            favoritesTableView.reloadData()
+            self.favoritesTableView.animate(animation: TableViewAnimation.Cell.left(duration: 0.5))
         }
     }
     var faveRecipe: Recipe?

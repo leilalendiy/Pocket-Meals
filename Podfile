@@ -9,7 +9,6 @@ target 'PocketMeals' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'KDCalendar'
-  pod 'hkMotus'
   pod 'TableFlip'
 
 end

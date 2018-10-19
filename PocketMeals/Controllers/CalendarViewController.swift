@@ -14,6 +14,8 @@ class CalendarViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var calendar: CalendarView!
+    @IBOutlet weak var previousMonthButton: UIButton!
+    @IBOutlet weak var nextMonthButton: UIButton!
     
     let formatter = DateFormatter()
     var date = Date()
@@ -32,6 +34,14 @@ class CalendarViewController: UIViewController {
         self.titleLabel.layer.cornerRadius = 5
         self.titleLabel.layer.borderWidth = 1
         self.titleLabel.layer.borderColor = UIColor.clear.cgColor
+        
+        self.previousMonthButton.layer.cornerRadius = 8
+        self.previousMonthButton.layer.borderWidth = 1
+        self.previousMonthButton.layer.borderColor = UIColor.clear.cgColor
+        
+        self.nextMonthButton.layer.cornerRadius = 8
+        self.nextMonthButton.layer.borderWidth = 1
+        self.nextMonthButton.layer.borderColor = UIColor.clear.cgColor
         
         CalendarView.Style.cellShape                = .round
         CalendarView.Style.cellColorDefault         = UIColor.clear

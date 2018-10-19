@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import hkMotus
+import TableFlip
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
@@ -41,7 +41,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // didset execute everytime product object value as change
         didSet{
             DispatchQueue.main.async {
-                self.recipesTableView.reloadData(effect: .roll)
+                self.recipesTableView.reloadData()
+                self.recipesTableView.animate(animation: TableViewAnimation.Cell.fade(duration: 0.5))
             }
         }
     }
@@ -52,7 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let searchTerm = searchBar.text!
         self.view.endEditing(true)
         searchRecipes(ingredients: searchTerm)
-        recipesTableView.reloadData(effect: .roll)
+        recipesTableView.reloadData()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
