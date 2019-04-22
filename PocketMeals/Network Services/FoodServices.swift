@@ -19,7 +19,7 @@ struct FoodServices {
         
         let url = URL(string: link)!
         
-        let header = ["X-Mashape-Key":"oCOBlDvvkJmsh9RZgPEGTWMrPy23p1Q5jWAjsnXZvAOGuYPJzH","Accept":"application/json"]
+        let header = ["X-Mashape-Key":"~PRIVATE KEY~","Accept":"application/json"]
         
         Alamofire.request(url, method: .get, parameters: param, headers: header).responseJSON { (response) in
             print(response.description)
